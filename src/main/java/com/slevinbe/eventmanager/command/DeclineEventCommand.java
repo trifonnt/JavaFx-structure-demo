@@ -9,19 +9,19 @@ import javax.inject.Inject;
 
 public class DeclineEventCommand extends Service<Void> {
 
-    @Inject
-    public IEventService eventService;
-    public EventVO eventToDeny;
-    public String denyReason;
+	@Inject
+	public IEventService eventService;
+	public EventVO eventToDeny;
+	public String denyReason;
 
-    @Override
-    protected Task<Void> createTask() {
-        return new Task<Void>() {
-            @Override
-            protected Void call() throws Exception {
-                eventService.declineEvent(eventToDeny, denyReason);
-                return null;
-            }
-        };
-    }
+	@Override
+	protected Task<Void> createTask() {
+		return new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				eventService.declineEvent(eventToDeny, denyReason);
+				return null;
+			}
+		};
+	}
 }

@@ -12,29 +12,29 @@ import java.util.List;
 
 public class EventListMediator implements IEventListMediator {
 
-    @Inject
-    public ICommandProvider commandProvider;
-    @Inject
-    public IEventSelectionModel eventSelectionModel;
-    @Inject
-    public IEventListView view;
+	@Inject
+	public ICommandProvider commandProvider;
+	@Inject
+	public IEventSelectionModel eventSelectionModel;
+	@Inject
+	public IEventListView view;
 
-    public void loadEvents() {
-        LoadEventsCommand command = commandProvider.get(LoadEventsCommand.class);
-        command.setOnSucceeded(new LoadEventsSucceedHandler());
-        command.start();
-    }
+	public void loadEvents() {
+		LoadEventsCommand command = commandProvider.get(LoadEventsCommand.class);
+		command.setOnSucceeded(new LoadEventsSucceedHandler());
+		command.start();
+	}
 
-    @Override
-    public void updateSelectedEvent(EventVO event) {
-        eventSelectionModel.setSelectedEvent(event);
-    }
+	@Override
+	public void updateSelectedEvent(EventVO event) {
+		eventSelectionModel.setSelectedEvent(event);
+	}
 
-    private class LoadEventsSucceedHandler implements EventHandler<WorkerStateEvent> {
+	private class LoadEventsSucceedHandler implements EventHandler<WorkerStateEvent> {
 
-        @Override
-        public void handle(WorkerStateEvent workerStateEvent) {
-            view.updateEventList((List<EventVO>)workerStateEvent.getSource().getValue());
-        }
-    }
+		@Override
+		public void handle(WorkerStateEvent workerStateEvent) {
+			view.updateEventList((List<EventVO>) workerStateEvent.getSource().getValue());
+		}
+	}
 }

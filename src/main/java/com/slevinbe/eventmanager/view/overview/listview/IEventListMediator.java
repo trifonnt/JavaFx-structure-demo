@@ -4,7 +4,7 @@ import com.slevinbe.eventmanager.vo.EventVO;
 
 public interface IEventListMediator {
 
-    void loadEvents();
+	void loadEvents();
 
-    void updateSelectedEvent(EventVO event);
+	void updateSelectedEvent(EventVO event);
 }

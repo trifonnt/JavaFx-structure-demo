@@ -9,19 +9,21 @@ import javax.inject.Inject;
 
 public class AcceptEventCommand extends Service<Void> {
 
-    @Inject
-    public IEventService eventService;
-    public EventVO eventToAccept;
+	@Inject
+	public IEventService eventService;
 
-    @Override
-    protected Task<Void> createTask() {
-        return new Task<Void>() {
-            @Override
-            protected Void call() throws Exception {
-                eventService.acceptEvent(eventToAccept);
+	public EventVO eventToAccept;
 
-                return null;
-            }
-        };
-    }
+
+	@Override
+	protected Task<Void> createTask() {
+		return new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				eventService.acceptEvent(eventToAccept);
+
+				return null;
+			}
+		};
+	}
 }

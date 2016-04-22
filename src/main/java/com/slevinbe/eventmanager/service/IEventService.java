@@ -6,8 +6,11 @@ import java.util.List;
 
 public interface IEventService {
 
-    List<EventVO> getEvents();
-    EventVO getEventDetails(String id);
-    void acceptEvent(EventVO event);
-    void declineEvent(EventVO event, String reason);
+	List<EventVO> getEvents();
+
+	EventVO getEventDetails(String id);
+
+	void acceptEvent(EventVO event);
+
+	void declineEvent(EventVO event, String reason);
 }

@@ -29,7 +29,7 @@
     -fx-text-fill: #343434;
 }
 
-.list-cell:selected .label{
+.list-cell:selected .label {
     -fx-background-color: transparent;
     -fx-text-fill: #343434;
 }
@@ -82,7 +82,7 @@
     -fx-text-fill: #4AC03D;;
 }
 
-.detailPaneStyle .label{
+.detailPaneStyle .label {
     -fx-text-fill: #343434;
 }
 

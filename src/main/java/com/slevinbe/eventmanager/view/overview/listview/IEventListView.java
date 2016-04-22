@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IEventListView {
 
-    void updateEventList(List<EventVO> events);
+	void updateEventList(List<EventVO> events);
 }

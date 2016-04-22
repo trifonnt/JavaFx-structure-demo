@@ -6,20 +6,20 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class EventSelectionModel implements IEventSelectionModel {
 
-    private ObjectProperty<EventVO> selectedEvent = new SimpleObjectProperty<EventVO>(this, "selectedEvent");
+	private ObjectProperty<EventVO> selectedEvent = new SimpleObjectProperty<EventVO>(this, "selectedEvent");
 
-    @Override
-    public EventVO getSelectedEvent() {
-        return selectedEvent.get();
-    }
+	@Override
+	public EventVO getSelectedEvent() {
+		return selectedEvent.get();
+	}
 
-    @Override
-    public void setSelectedEvent(EventVO event) {
-        selectedEvent.set(event);
-    }
+	@Override
+	public void setSelectedEvent(EventVO event) {
+		selectedEvent.set(event);
+	}
 
-    @Override
-    public ObjectProperty<EventVO> getSelectedEventProperty() {
-        return selectedEvent;
-    }
+	@Override
+	public ObjectProperty<EventVO> getSelectedEventProperty() {
+		return selectedEvent;
+	}
 }

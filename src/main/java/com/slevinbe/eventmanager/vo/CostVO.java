@@ -4,56 +4,57 @@ import javafx.beans.property.*;
 
 public class CostVO {
 
-    private StringProperty id = new SimpleStringProperty(this, "id");
-    private StringProperty type = new SimpleStringProperty(this, "type");
-    private IntegerProperty amount = new SimpleIntegerProperty(this, "amount");
-    private DoubleProperty fee = new SimpleDoubleProperty(this, "fee");
+	private StringProperty id = new SimpleStringProperty(this, "id");
+	private StringProperty type = new SimpleStringProperty(this, "type");
+	private IntegerProperty amount = new SimpleIntegerProperty(this, "amount");
+	private DoubleProperty fee = new SimpleDoubleProperty(this, "fee");
 
-    public StringProperty getIdProperty() {
-        return id;
-    }
 
-    public final String getId() {
-        return id.get();
-    }
+	public StringProperty getIdProperty() {
+		return id;
+	}
 
-    public final void setId(String id) {
-        this.id.set(id);
-    }
+	public final String getId() {
+		return id.get();
+	}
 
-    public StringProperty getTypeProperty() {
-        return type;
-    }
+	public final void setId(String id) {
+		this.id.set(id);
+	}
 
-    public final String getType() {
-        return type.get();
-    }
+	public StringProperty getTypeProperty() {
+		return type;
+	}
 
-    public final void setType(String type) {
-        this.type.set(type);
-    }
+	public final String getType() {
+		return type.get();
+	}
 
-    public IntegerProperty getAmountProperty() {
-        return amount;
-    }
+	public final void setType(String type) {
+		this.type.set(type);
+	}
 
-    public final Integer getAmount() {
-        return amount.get();
-    }
+	public IntegerProperty getAmountProperty() {
+		return amount;
+	}
 
-    public final void setAmount(Integer amount) {
-        this.amount.set(amount);
-    }
+	public final Integer getAmount() {
+		return amount.get();
+	}
 
-    public DoubleProperty getFeeProperty() {
-        return fee;
-    }
+	public final void setAmount(Integer amount) {
+		this.amount.set(amount);
+	}
 
-    public final Double getFee() {
-        return fee.get();
-    }
+	public DoubleProperty getFeeProperty() {
+		return fee;
+	}
 
-    public final void setFee(Double fee) {
-        this.fee.set(fee);
-    }
+	public final Double getFee() {
+		return fee.get();
+	}
+
+	public final void setFee(Double fee) {
+		this.fee.set(fee);
+	}
 }

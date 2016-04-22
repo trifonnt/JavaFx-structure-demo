@@ -12,28 +12,25 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private Pane eventOverviewPane;
+	private Pane eventOverviewPane;
 
-    public static void main(String[] args) {
-        Application.launch();
-    }
+	public static void main(String[] args) {
+		Application.launch();
+	}
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Injector injector = Guice.createInjector(new EventManagerModule());
-        EventOverviewView eventOverviewBuilder = injector.getInstance(EventOverviewView.class);
+	@Override
+	public void start(Stage stage) throws Exception {
+		Injector injector = Guice.createInjector(new EventManagerModule());
+		EventOverviewView eventOverviewBuilder = injector.getInstance(EventOverviewView.class);
 
-        Scene scene = SceneBuilder.create()
-                .root(
-                    eventOverviewPane = eventOverviewBuilder.getView()
-                ).build();
-        scene.getStylesheets().add(Main.class.getResource("/EventManager.css").toExternalForm());
+		Scene scene = SceneBuilder.create().root(eventOverviewPane = eventOverviewBuilder.getView()).build();
+		scene.getStylesheets().add(Main.class.getResource("/EventManager.css").toExternalForm());
 
-        eventOverviewPane.prefWidthProperty().bind(scene.widthProperty());
-        eventOverviewPane.prefHeightProperty().bind(scene.heightProperty());
+		eventOverviewPane.prefWidthProperty().bind(scene.widthProperty());
+		eventOverviewPane.prefHeightProperty().bind(scene.heightProperty());
 
-        stage.setScene(scene);
-        stage.setFullScreen(true);
-        stage.show();
-    }
+		stage.setScene(scene);
+		stage.setFullScreen(true);
+		stage.show();
+	}
 }

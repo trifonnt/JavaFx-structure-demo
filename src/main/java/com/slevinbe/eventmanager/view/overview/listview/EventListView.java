@@ -14,39 +14,38 @@ import java.util.List;
 
 public class EventListView implements IEventListView {
 
-    @Inject
-    public IEventListMediator mediator;
+	@Inject
+	public IEventListMediator mediator;
 
-    private ListView listView;
-    private ObservableList events;
+	private ListView listView;
+	private ObservableList events;
 
-    public ListView getView() {
-        if(listView == null) {
-            events = FXCollections.observableArrayList();
+	public ListView getView() {
+		if (listView == null) {
+			events = FXCollections.observableArrayList();
 
-            listView =  ListViewBuilder.create()
-                    .items(events)
-                    .onMouseClicked(new EventListMouseClickedHandler())
-                    .build();
-            listView.setCellFactory(new EventListItemRenderer());
+			listView = ListViewBuilder.create().items(events)
+					.onMouseClicked(new EventListMouseClickedHandler())
+					.build();
+			listView.setCellFactory(new EventListItemRenderer());
 
-            mediator.loadEvents();
-        }
+			mediator.loadEvents();
+		}
 
-        return listView;
-    }
+		return listView;
+	}
 
-    @Override
-    public void updateEventList(List<EventVO> events) {
-        this.events.clear();
-        this.events.addAll(events);
-    }
+	@Override
+	public void updateEventList(List<EventVO> events) {
+		this.events.clear();
+		this.events.addAll(events);
+	}
 
-    private class EventListMouseClickedHandler implements EventHandler<MouseEvent> {
+	private class EventListMouseClickedHandler implements EventHandler<MouseEvent> {
 
-        @Override
-        public void handle(MouseEvent mouseEvent) {
-            mediator.updateSelectedEvent((EventVO)listView.getSelectionModel().getSelectedItem());
-        }
-    }
+		@Override
+		public void handle(MouseEvent mouseEvent) {
+			mediator.updateSelectedEvent((EventVO) listView.getSelectionModel().getSelectedItem());
+		}
+	}
 }

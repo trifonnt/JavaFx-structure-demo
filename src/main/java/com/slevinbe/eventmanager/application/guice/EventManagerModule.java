@@ -30,47 +30,47 @@ import javax.inject.Singleton;
  */
 public class EventManagerModule extends AbstractModule {
 
-    @Override
-    protected void configure() {
-        bind(EventManagerModule.class).toInstance(this);
+	@Override
+	protected void configure() {
+		bind(EventManagerModule.class).toInstance(this);
 
-        mapViews();
-        mapMediators();
-        mapCommands();
-        mapServices();
-        mapModels();
-        mapInfrastructure();
-    }
+		mapViews();
+		mapMediators();
+		mapCommands();
+		mapServices();
+		mapModels();
+		mapInfrastructure();
+	}
 
-    private void mapViews() {
-        bind(IEventOverviewView.class).to(EventOverviewView.class);
-        bind(IEventListView.class).to(EventListView.class);
-        bind(IEventDetailView.class).to(EventDetailView.class);
-    }
+	private void mapViews() {
+		bind(IEventOverviewView.class).to(EventOverviewView.class);
+		bind(IEventListView.class).to(EventListView.class);
+		bind(IEventDetailView.class).to(EventDetailView.class);
+	}
 
-    private void mapMediators() {
-        bind(IEventOverviewMediator.class).to(EventOverviewMediator.class);
-        bind(IEventListMediator.class).to(EventListMediator.class);
-        bind(IEventDetailMediator.class).to(EventDetailMediator.class);
-    }
+	private void mapMediators() {
+		bind(IEventOverviewMediator.class).to(EventOverviewMediator.class);
+		bind(IEventListMediator.class).to(EventListMediator.class);
+		bind(IEventDetailMediator.class).to(EventDetailMediator.class);
+	}
 
-    private void mapCommands() {
-        bind(ICommandProvider.class).to(CommandProvider.class);
+	private void mapCommands() {
+		bind(ICommandProvider.class).to(CommandProvider.class);
 
-        bind(LoadEventsCommand.class);
-        bind(AcceptEventCommand.class);
-        bind(DeclineEventCommand.class);
-    }
+		bind(LoadEventsCommand.class);
+		bind(AcceptEventCommand.class);
+		bind(DeclineEventCommand.class);
+	}
 
-    private void mapServices() {
-        bind(IEventService.class).to(StubEventService.class);
-    }
+	private void mapServices() {
+		bind(IEventService.class).to(StubEventService.class);
+	}
 
-    private void mapModels() {
-        bind(IEventSelectionModel.class).to(EventSelectionModel.class).in(Singleton.class);
-    }
+	private void mapModels() {
+		bind(IEventSelectionModel.class).to(EventSelectionModel.class).in(Singleton.class);
+	}
 
-    private void mapInfrastructure() {
-        bind(ITranslationProvider.class).to(ResourceBundleTranslationProvider.class).in(Singleton.class);
-    }
+	private void mapInfrastructure() {
+		bind(ITranslationProvider.class).to(ResourceBundleTranslationProvider.class).in(Singleton.class);
+	}
 }
